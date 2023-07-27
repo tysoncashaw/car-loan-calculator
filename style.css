@@ -4,3 +4,6 @@ h1 {
 .buttonSpacer {
     padding-top: 25px;
 }
+#totalpayment {
+    font-size: 2em;
+}
