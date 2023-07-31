@@ -11,15 +11,12 @@ function calculation(event)
 
 
     let finalPrice = priceOfVehicle - downPayment;
-    totalInterest = finalPrice * interestRate;
-    principalPayment = (finalPrice * interestRate * Math.pow(1 + interestRate, loanTerm)) / (Math.pow(1 + interestRate, loanTerm) - 1);
-    pmt = principalPayment + totalInterest;
+    totalInterest =  parseFloat(interestRate)/1200;
     
+    let calc = ((totalInterest + (totalInterest / (Math.pow((1 + totalInterest), loanTerm) -1))) * finalPrice).toFixed(2);
 
-    // totalMonthlyPayment = (finalPrice + totalInterest) / loanTerm
     
-    
-    document.getElementById("totalpayment").innerHTML = "$" + pmt.toFixed(2);
+    document.getElementById("totalpayment").innerHTML = "$" + calc;
 
     
     event.preventDefault();
