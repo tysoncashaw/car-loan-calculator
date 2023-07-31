@@ -19,7 +19,7 @@ function calculation(event)
     // totalMonthlyPayment = (finalPrice + totalInterest) / loanTerm
     
     
-    document.getElementById("totalpayment").innerHTML = "$" + pmt;
+    document.getElementById("totalpayment").innerHTML = "$" + pmt.toFixed(2);
 
     
     event.preventDefault();
