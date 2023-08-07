@@ -14,6 +14,12 @@ function calculation(event)
         errorMsg.setAttribute("class", "text-danger");
         return;
     }
+    if(parseFloat(downPayment) >= parseFloat(priceOfVehicle)){
+        var errorMsg=  document.getElementById("totalpayment");
+        errorMsg.innerHTML = "Your downpayment amount must be lower than the purchase price";
+        errorMsg.setAttribute("class", "text-danger");
+        return;
+    }
 
     let finalPrice = parseFloat(priceOfVehicle) - parseFloat(downPayment);
     totalInterest =  parseFloat(interestRate)/1200;
@@ -22,11 +28,11 @@ function calculation(event)
 
     
     var total=document.getElementById("totalpayment");
-    fadeIn(total);
-    total.innerHTML = "$" + parseFloat(calc);
     
-
+        fadeIn(total);
+        total.innerHTML = "$" + parseFloat(calc);
     
+   
     event.preventDefault();
 }
 
