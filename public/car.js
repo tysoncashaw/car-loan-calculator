@@ -16,7 +16,7 @@ function calculation(event)
     }
     if(parseFloat(downPayment) >= parseFloat(priceOfVehicle)){
         var errorMsg=  document.getElementById("totalpayment");
-        errorMsg.innerHTML = "Your downpayment amount must be lower than the purchase price";
+        errorMsg.innerHTML = "Your down payment amount must be lower than the purchase price.";
         errorMsg.setAttribute("class", "text-danger");
         return;
     }
