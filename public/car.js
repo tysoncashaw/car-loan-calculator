@@ -20,7 +20,15 @@ function calculation(event)
         errorMsg.setAttribute("class", "text-danger");
         return;
     }
-
+    if(parseFloat(priceOfVehicle) <= 0 || priceOfVehicle == ""){
+        var errorMsg=  document.getElementById("totalpayment");
+        errorMsg.innerHTML = "Price of the vehicle can not be 0";
+        errorMsg.setAttribute("class", "text-danger");
+        return;
+    }
+    if (downPayment == ""){
+        downPayment = 0;
+    }
     let finalPrice = parseFloat(priceOfVehicle) - parseFloat(downPayment);
     totalInterest =  parseFloat(interestRate)/1200;
     
@@ -31,7 +39,7 @@ function calculation(event)
     
         fadeIn(total);
         total.innerHTML = "$" + parseFloat(calc);
-    
+        total.setAttribute("class", "");
    
     event.preventDefault();
 }
