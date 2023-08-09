@@ -1,12 +1,12 @@
 
-function calculation(event) 
+function calculation() 
 {
     let totalInterest; 
     
-    const priceOfVehicle = document.getElementById("priceOfVehicle").value;
-    const interestRate = document.getElementById("interestRate").value;
-    const loanTerm = document.getElementById("loanTerm").value;
-    const downPayment = document.getElementById("downPayment").value;
+    var priceOfVehicle = document.getElementById("priceOfVehicle").value;
+    var interestRate = document.getElementById("interestRate").value;
+    var loanTerm = document.getElementById("loanTerm").value;
+    var downPayment = document.getElementById("downPayment").value;
 
     if(parseFloat(interestRate) <= 0){
         var errorMsg=  document.getElementById("totalpayment");
@@ -35,13 +35,11 @@ function calculation(event)
     let calc = ((totalInterest + (totalInterest / (Math.pow((1 + totalInterest), loanTerm) -1))) * finalPrice).toFixed(2);
 
     
-    var total=document.getElementById("totalpayment");
+    var total = document.getElementById("totalpayment");
     
-        fadeIn(total);
-        total.innerHTML = "$" + parseFloat(calc);
-        total.setAttribute("class", "");
-   
-    event.preventDefault();
+    fadeIn(total);
+    total.innerHTML = "$" + parseFloat(calc);
+    total.setAttribute("class", "");
 }
 
 function fadeIn(element) {
