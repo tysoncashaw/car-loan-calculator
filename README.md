@@ -44,7 +44,9 @@ This project would allow the user to calculate what an auto loan might cost them
 * Navigate to [Firebase app](https://auto-loan-calculator-6c0a9.firebaseapp.com//)
 
 This application will calculate the monthly payment when given the price of the car, the downpayment, interest rate, and the loan term.
+## Roadmap
 
+* Add number sliders 
 
 <!-- CONTACT -->
 ## Contact
