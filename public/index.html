@@ -22,7 +22,8 @@
            <form name='calcForm' class=form  onsubmit="event.preventDefault()">
             <div class="form-group">
               <label for="priceOfVehicle">Price of Vehicle</label>
-              <input type="number" value="30000" class="form-control-range" id="priceOfVehicle" name="priceOfVehicle" aria-describedby="priceOfVehicle" placeholder="$">
+              <input type="range" min="2000" max="100000" value="2000" class="slider" id="myRange" >
+              <p id="sliderValue">Value: <span id="value" ></span></p> 
               
               
             </div>
