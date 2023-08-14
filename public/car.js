@@ -3,10 +3,24 @@ function calculation()
 {
     let totalInterest; 
     
-    var priceOfVehicle = document.getElementById("priceOfVehicle").value;
+    var priceOfVehicle = document.getElementById("myRange");
+    var output = document.getElementById("value");
     var interestRate = document.getElementById("interestRate").value;
     var loanTerm = document.getElementById("loanTerm").value;
     var downPayment = document.getElementById("downPayment").value;
+
+    output.innerHTML = priceOfVehicle.value;
+
+    priceOfVehicle.oninput = function() {
+        output.innerHTML = this.value;
+
+    }
+
+    priceOfVehicle.addEventListener("input", function() {
+        var x = priceOfVehicle.value;
+        var color = `linear-gradient(90deg, rgb(117,252,117)${x}%, rgb(214,214,214)${x}%)`;
+        priceOfVehicle.style.background = color; 
+    })
 
     if(parseFloat(interestRate) <= 0){
         var errorMsg=  document.getElementById("totalpayment");
@@ -29,7 +43,7 @@ function calculation()
     if (downPayment == ""){
         downPayment = 0;
     }
-    let finalPrice = parseFloat(priceOfVehicle) - parseFloat(downPayment);
+    let finalPrice = parseFloat(priceOfVehicle.value) - parseFloat(downPayment);
     totalInterest =  parseFloat(interestRate)/1200;
     
     let calc = ((totalInterest + (totalInterest / (Math.pow((1 + totalInterest), loanTerm) -1))) * finalPrice).toFixed(2);
@@ -54,3 +68,4 @@ function fadeIn(element) {
         op += op * 0.1;
     }, 50);
 }
+
