@@ -13,14 +13,14 @@ function calculation()
 
     priceOfVehicle.oninput = function() {
         output.innerHTML = this.value;
-
+        calculation();
     }
 
-    priceOfVehicle.addEventListener("input", function() {
-        var x = priceOfVehicle.value;
-        var color = `linear-gradient(90deg, rgb(117,252,117)${x}%, rgb(214,214,214)${x}%)`;
-        priceOfVehicle.style.background = color; 
-    })
+   priceOfVehicle.onmousemove = function() {
+        var x = (priceOfVehicle.value/ 100000) * 100;
+        var color = `linear-gradient(90deg, rgb(117,252,117)${x}%, rgb(214,214,214)${x}%)`; 
+        this.style.background = color; 
+    }
 
     if(parseFloat(interestRate) <= 0){
         var errorMsg=  document.getElementById("totalpayment");
