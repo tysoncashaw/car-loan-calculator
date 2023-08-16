@@ -32,16 +32,17 @@
               <label for="interestRate">Interest Rate</label>
               <input type="number" value=".05" class="form-control" id="interestRate" aria-describedby="interestRate" placeholder="%">
             </div>
-            <div class="form-group">
+            <div class="form-group" id="ltdiv">
                 <label for="loanTerm">Loan Term (months)</label>
-                <input type="number" value="48" class="form-control" id="loanTerm" aria-describedby="loanTerm" placeholder="0">
+                <input type="range" min="3" max="84" value="3" class="ltSlider" id="loanTerm" >
+                <p id="ltsliderValue">Value: <span id="ltvalue" ></span></p>
             </div>
 
 
-            <div class="form-group">
+            <div class="form-group" id="dpdiv">
                 <label for="downPayment">Down Payment</label>
-                <input type="number" value="1000" class="form-control" id="downPayment" aria-describedby="downPayment" placeholder="$">
-                
+                <input type="range" min="0" max="50000" value="0" class="dpSlider" id="downPayment" >
+                <p id="dpsliderValue">Value: <span id="dpvalue" ></span></p>
             </div>
 
 

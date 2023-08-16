@@ -64,3 +64,102 @@ P {
     cursor: pointer;
 }
 
+.ltSlider {
+    -webkit-appearance: none;
+    width: 25%;
+    height: 20px;
+    background: linear-gradient(90deg, rgb(214,214,214) 50%, rgb(214,214,214) 50%);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 20px;
+    box-shadow: 0px 1px 10px 1px black;
+
+}
+
+.ltSlider::after {
+    content: '84';
+    color: black;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 42%;
+    top: 45%;
+}
+
+.ltSlider::before {
+    content: '3';
+    color: black;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 28%;
+    top: 45%;
+}
+
+.ltSlider:hover {
+    opacity: 1;
+}
+
+.ltSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: blue;
+    cursor: pointer;
+}
+
+.dpSlider {
+    -webkit-appearance: none;
+    width: 25%;
+    height: 20px;
+    background: linear-gradient(90deg, rgb(214,214,214) 50%, rgb(214,214,214) 50%);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 25px;
+    box-shadow: 0px 1px 10px 1px black;
+
+}
+
+.dpSlider::after {
+    content: '50000';
+    color: black;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 38%;
+    top: 57%;
+}
+
+.dpSlider::before {
+    content: '0';
+    color: black;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 25%;
+    top: 57%;
+}
+
+.dpSlider:hover {
+    opacity: 1;
+}
+
+.dpSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: blue;
+    cursor: pointer;
+}
+
+#dpdiv {
+    padding-top: 20px;
+}
+
+#ltdiv {
+    padding-top: 35px;
+}
