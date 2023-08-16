@@ -43,17 +43,13 @@ function calculation()
     if (downPayment == ""){
         downPayment = 0;
     }
-    let finalPrice = parseFloat(priceOfVehicle.value) - parseFloat(downPayment);
+    let finalPrice = parseFloat(priceOfVehicle.value) - parseFloat(downPayment); 
     totalInterest =  parseFloat(interestRate)/1200;
-    
-    let calc = ((totalInterest + (totalInterest / (Math.pow((1 + totalInterest), loanTerm) -1))) * finalPrice).toFixed(2);
-
-    
+    let calc = ((totalInterest + (totalInterest / (Math.pow((1 + totalInterest), loanTerm) -1))) * finalPrice);
+    let calcstart = parseFloat(calc) + 50;
     var total = document.getElementById("totalpayment");
-    
-    fadeIn(total);
-    total.innerHTML = "$" + parseFloat(calc);
-    total.setAttribute("class", "");
+    animateValue(total, calcstart, calc, 750);
+
 }
 
 function fadeIn(element) {
@@ -69,3 +65,19 @@ function fadeIn(element) {
     }, 50);
 }
 
+
+function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = "$" + parseFloat(progress * (end - start) + start).toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
