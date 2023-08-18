@@ -6,6 +6,7 @@ function calculation()
     var priceOfVehicle = document.getElementById("myRange");
     var output = document.getElementById("value");
     var interestRate = document.getElementById("interestRate");
+    var loutput = document.getElementById("lvalue");
     var loanTerm = document.getElementById("loanTerm");
     var ltoutput = document.getElementById("ltvalue");
     var downPayment = document.getElementById("downPayment");
@@ -45,12 +46,17 @@ function calculation()
         this.style.background = color; 
     }
 
-    if(parseFloat(interestRate.value) <= 0){
-        var errorMsg=  document.getElementById("totalpayment");
-        errorMsg.innerHTML = "Interest rate can not be 0%";
-        errorMsg.setAttribute("class", "text-danger");
-        return;
+    interestRate.oninput = function() {
+        loutput.innerHTML = this.value;
+        calculation();
     }
+
+   interestRate.onmousemove = function() {
+        var x = (interestRate.value/ 100) * 100;
+        var color = `linear-gradient(90deg, rgb(117,252,117)${x}%, rgb(214,214,214)${x}%)`; 
+        this.style.background = color; 
+    }
+
     if(parseFloat(downPayment.value) >= parseFloat(priceOfVehicle.value)){
         var errorMsg=  document.getElementById("totalpayment");
         errorMsg.innerHTML = "Your down payment amount must be lower than the purchase price.";
@@ -67,27 +73,25 @@ function calculation()
         downPayment.value = 0;
     }
     let finalPrice = parseFloat(priceOfVehicle.value) - parseFloat(downPayment.value); 
-    totalInterest =  parseFloat(interestRate.value)/1200;
-    let calc = ((totalInterest + (totalInterest / (Math.pow((1 + totalInterest), loanTerm.value) -1))) * finalPrice);
+    console.log("Final Price: " + finalPrice);
+
+   let calc;
+    if(parseFloat(interestRate.value) <= 0){
+        calc = finalPrice / loanTerm.value;
+    } else {
+        totalInterest =  parseFloat(interestRate.value)/1200;
+        calc = ((totalInterest + (totalInterest / (Math.pow((1 + totalInterest), loanTerm.value) -1))) * finalPrice);
+    }
+    console.log("Calc: " + calc);
     let calcstart = parseFloat(calc) + 50;
+    console.log(calcstart);
+
     var total = document.getElementById("totalpayment");
+    total.innerHTML = "";
     animateValue(total, calcstart, calc, 750);
+  
 
 }
-
-function fadeIn(element) {
-    var op = 0.1;  // initial opacity
-    element.style.display = 'block';
-    var timer = setInterval(function () {
-        if (op >= 1){
-            clearInterval(timer);
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.1;
-    }, 50);
-}
-
 
 function animateValue(obj, start, end, duration) {
     let startTimestamp = null;

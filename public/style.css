@@ -37,7 +37,7 @@ P {
     font-size: 1.5rem;
     position: absolute;
     left: 77%;
-    top: 20%;
+    top: 19%;
 }
 
 
@@ -47,7 +47,7 @@ P {
     font-size: 1.5rem;
     position: absolute;
     left: 17%;
-    top: 20%;
+    top: 19%;
 }
 
 .slider:hover {
@@ -129,7 +129,7 @@ P {
     color: black;
     font-size: 1.5rem;
     position: absolute;
-    left: 38%;
+    left: 36%;
     top: 57%;
 }
 
@@ -156,10 +156,61 @@ P {
     cursor: pointer;
 }
 
+
+.lSlider {
+    -webkit-appearance: none;
+    width: 25%;
+    height: 20px;
+    background: linear-gradient(90deg, rgb(214,214,214) 70%, rgb(214,214,214) 70%);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 25px;
+    box-shadow: 0px 1px 10px 1px black;
+
+}
+
+.lSlider::after {
+    content: '100';
+    color: black;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 37%;
+    top: 31%;
+}
+
+.lSlider::before {
+    content: '0';
+    color: black;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 24%;
+    top: 31%;
+}
+
+.lSlider:hover {
+    opacity: 1;
+}
+
+.lSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: blue;
+    cursor: pointer;
+}
+
 #dpdiv {
     padding-top: 20px;
 }
 
 #ltdiv {
+    padding-top: 35px;
+}
+
+#ldiv {
     padding-top: 35px;
 }
